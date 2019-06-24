@@ -50,12 +50,17 @@ export const editNote = (id, payLoad) => {
 export const deleteNote = (id) => {
   return (dispatch) => {
     fetch(`http://localhost:5000/notes/${id}`, {
-        method: 'POST',
+        method: 'DELETE',
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
         }
-    })
+    }).then(response => response.json())
+      .then(data =>
+        console.log(data)
+        // this should return true or false
+        // dispatch(setAllNotes(data))
+      )
   }
 }
 

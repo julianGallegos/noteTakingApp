@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
 
 import * as noteActions from '../../redux/actions/noteActions'
+import SampleChildComponentWithState from '../../components/SampleChildComponentWithState'
 
 class NoteTakingContainer extends Component {
   constructor(props) {
@@ -15,17 +16,18 @@ class NoteTakingContainer extends Component {
 
   componentDidMount () {
     // testing that all actions work as expected
-    const actions = this.props;
-    actions.noteActions.getNotes()
-    actions.noteActions.addNote({title: 'wat', body: 'yo', created_by: 'me'})
-    actions.noteActions.deleteNote(1)
-    actions.noteActions.editNote(42, {title: 'edited', body: 'oh my', edited_by: 'julian' })
+    // const actions = this.props;
+    // actions.noteActions.getNotes()
+    // actions.noteActions.addNote({title: 'wat', body: 'yo', created_by: 'me'})
+    // actions.noteActions.deleteNote(17)
+    // // actions.noteActions.editNote(42, {title: 'edited', body: 'oh my', edited_by: 'julian' })
   }
 
   render () {
     return (
       <div>
-        NoteTakingContainer Component!
+        NoteTakingContainer component
+        { < SampleChildComponentWithState { ...this.props } /> }
       </div>
     )
   }
